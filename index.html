@@ -1,10 +1,291 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>HarmonyDesk</title>
-  </head>
-  <body style="font-family: sans-serif; padding: 40px;">
-    <h1>HarmonyDesk is launching soon.</h1>
-    <p>This is the initial placeholder deployment.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HarmonyDesk — AI Office Assistant for Mediation Practices</title>
+  <meta name="description" content="HarmonyDesk is a specialized AI assistant that manages receptionist and secretarial duties for mediators: intake, scheduling, reminders, and case correspondence." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f1733;
+      --muted:#a9b3c8;
+      --text:#e9eefc;
+      --brand:#6aa7ff;
+      --brand-2:#94e1ff;
+      --accent:#a8ffcf;
+      --ok:#4ade80;
+      --warn:#f59e0b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --maxw:1200px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg:#f7f9ff;
+        --card:#ffffff;
+        --muted:#5a6881;
+        --text:#0c1326;
+        --brand:#2b6eef;
+        --brand-2:#2aa4f4;
+        --accent:#0ab68b;
+        --ok:#15803d;
+        --warn:#b45309;
+        --shadow:0 8px 24px rgba(2,8,23,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 500px at 50% -100px, rgba(106,167,255,.18), transparent 60%),var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px 22px}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .75rem;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:.825rem;color:var(--muted);background:rgba(255,255,255,.03);backdrop-filter: blur(6px)}
+    .grid{display:grid;gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card.dense{padding:18px}
+    .muted{color:var(--muted)}
+    .hero{padding:40px 0 22px}
+    .hero h1{font-size: clamp(28px, 5vw, 48px);line-height:1.15;margin:14px 0}
+    .hero p{font-size: clamp(15px, 2.2vw, 20px);color:var(--muted);max-width:800px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);font-weight:600;transition:.2s ease;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2));color:white;border:none}
+    .btn.secondary{background:transparent;color:var(--text)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.22)}
+    .section{padding:32px 0}
+    .section h2{font-size: clamp(22px, 4vw, 32px);margin:6px 0 14px}
+    .kpis{grid-template-columns: repeat(4, minmax(0,1fr))}
+    .features{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .how{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .faq{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .footer{padding:40px 0 70px;color:var(--muted);font-size:.95rem}
+    @media (max-width: 960px){
+      .kpis{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .features{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .how{grid-template-columns: repeat(1, minmax(0,1fr))}
+      .faq{grid-template-columns: repeat(1, minmax(0,1fr))}
+    }
+    .hr{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);margin:24px 0}
+    .logo{display:flex;align-items:center;gap:.65rem}
+    .logo svg{width:34px;height:34px}
+    .tag{display:inline-block;font-size:.8rem;color:var(--muted);margin-right:10px}
+    .price{font-size:2rem;font-weight:800}
+    .list{padding-left:0;margin:0;list-style:none}
+    .list li{display:flex;gap:.6rem;align-items:flex-start;margin:8px 0}
+    .check{display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(20,220,120,.14);color:var(--ok);width:22px;height:22px}
+    .warn{display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(255,193,7,.12);color:var(--warn);width:22px;height:22px}
+    .caps{text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:.78rem;color:var(--muted)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;color:var(--muted)}
+    .foot-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="logo">
+      <!-- Simple inline SVG mark -->
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="var(--brand)"/>
+            <stop offset="1" stop-color="var(--brand-2)"/>
+          </linearGradient>
+        </defs>
+        <rect x="6" y="10" width="52" height="44" rx="10" fill="url(#g)" opacity=".9"/>
+        <path d="M18 25h28M18 33h20M18 41h28" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+      </svg>
+      <div>
+        <strong>HarmonyDesk</strong><br/>
+        <span class="muted" style="font-size:.9rem">AI Office Assistant for Mediation Practices</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <span class="badge">Purpose‑built for mediators</span>
+      <h1>Offload intake, scheduling, and follow‑ups — focus on resolution.</h1>
+      <p>
+        HarmonyDesk is a specialized AI assistant that manages receptionist and secretarial duties for solo and small mediation firms. It handles intake, calendars, reminders, and case correspondence with a consistent, professional tone.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#demo" aria-label="Request a demo of HarmonyDesk">Request a Demo</a>
+        <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">How it works</a>
+      </div>
+      <div class="hr"></div>
+      <div class="grid kpis">
+        <div class="card dense">
+          <div class="caps">Time saved</div>
+          <div class="price">10–15 hrs/wk</div>
+          <div class="muted">Typical admin time reclaimed</div>
+        </div>
+        <div class="card dense">
+          <div class="caps">Response coverage</div>
+          <div class="price">24/7</div>
+          <div class="muted">No missed calls or emails</div>
+        </div>
+        <div class="card dense">
+          <div class="caps">Implementation</div>
+          <div class="price">&lt; 1 hr</div>
+          <div class="muted">Connect calendar, email, SMS</div>
+        </div>
+        <div class="card dense">
+          <div class="caps">Privacy</div>
+          <div class="price">Client‑safe</div>
+          <div class="muted">Confidentiality‑forward defaults</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>What HarmonyDesk manages for you</h2>
+      <div class="grid features">
+        <div class="card">
+          <h3>Reception & Intake</h3>
+          <p class="muted">Capture inquiries, answer routine questions, and route urgent requests. Intake forms go out automatically with clear instructions.</p>
+          <ul class="list">
+            <li><span class="check">✓</span>Call & email triage</li>
+            <li><span class="check">✓</span>Automated intake form delivery</li>
+            <li><span class="check">✓</span>Standard info packets</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Scheduling & Reminders</h3>
+          <p class="muted">Real‑time calendar management with rescheduling logic and timezone handling. Reminders by email or SMS.</p>
+          <ul class="list">
+            <li><span class="check">✓</span>Calendar sync (Google / Outlook)</li>
+            <li><span class="check">✓</span>Smart rescheduling rules</li>
+            <li><span class="check">✓</span>Reminders & confirmations</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Case Correspondence</h3>
+          <p class="muted">Drafts professional emails, agendas, and follow‑ups in your tone. Generates neutral summaries on request.</p>
+          <ul class="list">
+            <li><span class="check">✓</span>Templates with your voice</li>
+            <li><span class="check">✓</span>Post‑session notes (optional)</li>
+            <li><span class="check">✓</span>Conflict‑aware language</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section card">
+      <h2>How it works</h2>
+      <div class="grid how">
+        <div>
+          <div class="pill"><span class="mono">1</span> Connect</div>
+          <p class="muted">Link your calendar, email, and (optionally) SMS number. We use read/write scopes only for operations you approve.</p>
+        </div>
+        <div>
+          <div class="pill"><span class="mono">2</span> Configure</div>
+          <p class="muted">Choose office hours, intake questions, and preferred tone. Upload your standard documents and policies.</p>
+        </div>
+        <div>
+          <div class="pill"><span class="mono">3</span> Operate</div>
+          <p class="muted">HarmonyDesk triages messages, schedules sessions, and drafts correspondence. You keep full review and override control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid features">
+        <div class="card">
+          <h3>Why mediators choose HarmonyDesk</h3>
+          <ul class="list">
+            <li><span class="check">✓</span>Purpose‑built for mediation workflows</li>
+            <li><span class="check">✓</span>Consistent, professional tone</li>
+            <li><span class="check">✓</span>Fewer back‑and‑forth emails</li>
+            <li><span class="check">✓</span>Clear client experience from first contact</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Privacy & boundaries</h3>
+          <ul class="list">
+            <li><span class="check">✓</span>Least‑privilege account access</li>
+            <li><span class="check">✓</span>Confidentiality‑first prompts</li>
+            <li><span class="check">✓</span>Human review for sensitive items</li>
+            <li><span class="warn">!</span>Never drafts legal advice</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Simple pricing</h3>
+          <p class="muted">Start with a pilot. Scale only if it saves meaningful time.</p>
+          <div class="price">$149/mo</div>
+          <ul class="list">
+            <li><span class="check">✓</span>Up to 2 calendars</li>
+            <li><span class="check">✓</span>500 messages/mo</li>
+            <li><span class="check">✓</span>Email + SMS reminders</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn primary" href="#demo">Start a Pilot</a>
+            <a class="btn secondary" href="#faq">Questions?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section card">
+      <h2>Request a demo</h2>
+      <p class="muted">No commitment. We’ll show HarmonyDesk with your office hours and a sample intake flow.</p>
+      <form onsubmit="event.preventDefault(); const m=document.getElementById('msg'); m.hidden=false; m.focus();">
+        <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
+          <label>
+            <span class="caps">Your name</span><br>
+            <input required type="text" name="name" placeholder="Jane Mediator" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
+          </label>
+          <label>
+            <span class="caps">Email</span><br>
+            <input required type="email" name="email" placeholder="jane@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
+          </label>
+          <label style="grid-column:1/-1">
+            <span class="caps">Notes (optional)</span><br>
+            <textarea name="notes" rows="4" placeholder="Tell us about your current admin workflow…" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></textarea>
+          </label>
+        </div>
+        <div class="cta-row" style="margin-top:14px">
+          <button class="btn primary" type="submit">Send Request</button>
+          <a class="btn secondary" href="mailto:duelgregory@gmail.com" title="Open your email client">Email us instead</a>
+        </div>
+        <p id="msg" hidden role="status" class="muted" style="margin-top:10px">Thanks — your demo request would be sent here in a live version.</p>
+      </form>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>Frequently asked questions</h2>
+      <div class="grid faq">
+        <div class="card">
+          <h3>Do I need new software?</h3>
+          <p class="muted">No. HarmonyDesk connects to tools you already use — your calendar, email, and (optionally) a phone/SMS line.</p>
+        </div>
+        <div class="card">
+          <h3>Is it compliant with confidentiality?</h3>
+          <p class="muted">We design for confidentiality from the start. You choose what the assistant can access and where human review is required.</p>
+        </div>
+        <div class="card">
+          <h3>What about tone and empathy?</h3>
+          <p class="muted">You set the voice guidelines. HarmonyDesk mirrors your preferred tone for intake, reminders, and follow‑ups.</p>
+        </div>
+        <div class="card">
+          <h3>Can I pause or limit actions?</h3>
+          <p class="muted">Yes. You can require approval for certain tasks and set working hours and scope boundaries anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="hr"></div>
+
+    <section class="footer container" aria-label="Footer">
+      <div class="foot-links">
+        <span class="tag">© <span id="year"></span> HarmonyDesk</span>
+        <span class="tag">Mediation‑first AI</span>
+        <span class="tag">Made for solo & small firms</span>
+      </div>
+      <div class="muted" style="margin-top:8px">This is a demo page for showcasing the concept. Replace the email with your preferred contact method.</div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
