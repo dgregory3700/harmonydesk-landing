@@ -227,21 +227,38 @@
     <section id="demo" class="section card">
       <h2>Request a demo</h2>
       <p class="muted">No commitment. We’ll show HarmonyDesk with your office hours and a sample intake flow.</p>
-      <form onsubmit="event.preventDefault(); const m=document.getElementById('msg'); m.hidden=false; m.focus();">
-        <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
-          <label>
-            <span class="caps">Your name</span><br>
-            <input required type="text" name="name" placeholder="Jane Mediator" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
-          </label>
-          <label>
-            <span class="caps">Email</span><br>
-            <input required type="email" name="email" placeholder="jane@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
-          </label>
-          <label style="grid-column:1/-1">
-            <span class="caps">Notes (optional)</span><br>
-            <textarea name="notes" rows="4" placeholder="Tell us about your current admin workflow…" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></textarea>
-          </label>
-        </div>
+      <form onsubmit="handleDemoSubmit(event)">
+  <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
+    <label>
+      <span class="caps">Your name</span><br>
+      <input required type="text" name="name" placeholder="Jane Mediator" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
+    </label>
+    <label>
+      <span class="caps">Email</span><br>
+      <input required type="email" name="email" placeholder="jane@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
+    </label>
+    <label style="grid-column:1/-1">
+      <span class="caps">Notes (optional)</span><br>
+      <textarea name="notes" rows="4" placeholder="Tell us about your current admin workflow…" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></textarea>
+    </label>
+  </div>
+
+  <div class="cta-row" style="margin-top:14px">
+    <button class="btn primary" type="submit">Send request</button>
+
+    <!-- still keep a plain email fallback -->
+    <a class="btn secondary"
+       href="mailto:dgregory3700@dueltech.io"
+       title="Open your email client">
+      Email us instead
+    </a>
+  </div>
+
+  <p id="msg" hidden role="status" class="muted" style="margin-top:10px">
+    We’re opening your email client with your demo request filled in…
+  </p>
+</form>
+
         <div class="cta-row" style="margin-top:14px">
   <!-- Primary: go straight to checkout -->
   <a class="btn primary"
