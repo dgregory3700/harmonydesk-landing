@@ -224,56 +224,87 @@
       </div>
     </section>
 
-    <section id="demo" class="section card">
-      <h2>Request a demo</h2>
-      <p class="muted">No commitment. We’ll show HarmonyDesk with your office hours and a sample intake flow.</p>
-      <form onsubmit="handleDemoSubmit(event)">
-  <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
-    <label>
-      <span class="caps">Your name</span><br>
-      <input required type="text" name="name" placeholder="Jane Mediator" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
-    </label>
-    <label>
-      <span class="caps">Email</span><br>
-      <input required type="email" name="email" placeholder="jane@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)">
-    </label>
-    <label style="grid-column:1/-1">
-      <span class="caps">Notes (optional)</span><br>
-      <textarea name="notes" rows="4" placeholder="Tell us about your current admin workflow…" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></textarea>
-    </label>
-  </div>
-
-  <div class="cta-row" style="margin-top:14px">
-    <button class="btn primary" type="submit">Send request</button>
-
-    <!-- still keep a plain email fallback -->
-    <a class="btn secondary"
-       href="mailto:dgregory3700@dueltech.io"
-       title="Open your email client">
-      Email us instead
-    </a>
-  </div>
-
-  <p id="msg" hidden role="status" class="muted" style="margin-top:10px">
-    We’re opening your email client with your demo request filled in…
+   <section id="demo" class="section card">
+  <h2>Request a demo</h2>
+  <p class="muted">
+    No commitment. We’ll show HarmonyDesk with your office hours and a sample intake flow.
   </p>
-</form>
 
-        <div class="cta-row" style="margin-top:14px">
-  <!-- Primary: go straight to checkout -->
-  <a class="btn primary"
-     href="https://harmonydesk.lemonsqueezy.com/buy/86a865d7-72b6-42ef-a3c2-7e8cbb400800"
-     target="_blank"
-     rel="noopener">
-    Purchase now
-  </a>
+  <form onsubmit="handleDemoSubmit(event)">
+    <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
+      <label>
+        <span class="caps">Your name</span><br>
+        <input
+          required
+          type="text"
+          name="name"
+          placeholder="Jane Mediator"
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
+        >
+      </label>
 
- 
-</div>
+      <label>
+        <span class="caps">Email</span><br>
+        <input
+          required
+          type="email"
+          name="email"
+          placeholder="jane@example.com"
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
+        >
+      </label>
 
-        <p id="msg" hidden role="status" class="muted" style="margin-top:10px">Thanks — your demo request would be sent here in a live version.</p>
-      </form>
-    </section>
+      <label style="grid-column:1/-1">
+        <span class="caps">Notes (optional)</span><br>
+        <textarea
+          name="notes"
+          rows="4"
+          placeholder="Tell us about your current admin workflow…"
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
+        ></textarea>
+      </label>
+    </div>
+
+    <!-- All three actions in one row -->
+    <div class="cta-row" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+      <!-- Primary: send the demo request (just shows a thank-you in this MVP) -->
+      <button class="btn primary" type="submit">
+        Send request
+      </button>
+
+      <!-- Secondary: open email client with fields filled in -->
+      <a
+        class="btn secondary"
+        href="mailto: dgregory3700@dueltech.io"
+        title="Open your email client"
+      >
+        Email us instead
+      </a>
+
+      <!-- Purchase: straight to Lemon Squeezy checkout -->
+      <a
+        class="btn primary"
+        href="https://harmonydesk.lemonsqueezy.com/buy/86a865d7-72b6-42ef-a3c2-7e8cbb400800"
+        target="_blank"
+        rel="noopener"
+      >
+        Purchase now
+      </a>
+    </div>
+
+    <!-- Single acknowledgement message (no duplicate ids) -->
+    <p
+      id="demo-msg"
+      hidden
+      role="status"
+      class="muted"
+      style="margin-top:10px"
+    >
+      Thanks — your demo request would be sent to our inbox in a live version.
+    </p>
+  </form>
+</section>
+
 
     <section id="faq" class="section">
       <h2>Frequently asked questions</h2>
