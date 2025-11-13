@@ -341,7 +341,22 @@
   </main>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  function handleDemoSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const msg = document.getElementById('demo-msg');
+
+    if (msg) {
+      msg.hidden = false;
+      msg.textContent =
+        'Thanks — your demo request would be sent to our inbox in a live version.';
+    }
+
+    // Optional: clear the fields so it feels “submitted”
+    form.reset();
+  }
+</script>
+
 </body>
 </html>
