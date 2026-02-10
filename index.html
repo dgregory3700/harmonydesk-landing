@@ -78,6 +78,9 @@
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;color:var(--muted)}
     .foot-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+
+    /* Demo notice (minimal, optional styling) */
+    .demo-note{font-size:.9rem;color:var(--muted);margin-top:10px}
   </style>
 </head>
 <body>
@@ -103,20 +106,35 @@
 
   <main class="container">
     <section class="hero card">
-      <span class="badge">Purpose‑built for mediators</span>
-      <h1>Offload intake, scheduling, and follow‑ups — focus on resolution.</h1>
+      <span class="badge">Purpose-built for mediators</span>
+      <h1>Offload intake, scheduling, and follow-ups — focus on resolution.</h1>
       <p>
         HarmonyDesk is a specialized AI assistant that manages receptionist and secretarial duties for solo and small mediation firms. It handles intake, calendars, reminders, and case correspondence with a consistent, professional tone.
       </p>
+
       <div class="cta-row">
-        <a class="btn primary" href="#demo" aria-label="Request a demo of HarmonyDesk">Request a Demo</a>
+        <!-- CHANGED: "Request a Demo" -> Live Demo -->
+        <a class="btn primary"
+           href="https://www.harmonydesk.dev/dashboard"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="View the HarmonyDesk live demo (read-only)">
+          View Live Demo
+        </a>
+
         <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">How it works</a>
-        <a class="btn secondary" 
-       href="https://app.lemonsqueezy.com/my/subscriptions" 
-       aria-label="Manage your HarmonyDesk subscription">
-        Manage Subscription
-    </a>
+
+        <a class="btn secondary"
+           href="https://app.lemonsqueezy.com/my/subscriptions"
+           aria-label="Manage your HarmonyDesk subscription">
+          Manage Subscription
+        </a>
       </div>
+
+      <div class="demo-note">
+        Demo is sample data (read-only). Purchase to use HarmonyDesk with your practice.
+      </div>
+
       <div class="hr"></div>
       <div class="grid kpis">
         <div class="card dense">
@@ -136,8 +154,8 @@
         </div>
         <div class="card dense">
           <div class="caps">Privacy</div>
-          <div class="price">Client‑safe</div>
-          <div class="muted">Confidentiality‑forward defaults</div>
+          <div class="price">Client-safe</div>
+          <div class="muted">Confidentiality-forward defaults</div>
         </div>
       </div>
     </section>
@@ -156,7 +174,7 @@
         </div>
         <div class="card">
           <h3>Scheduling & Reminders</h3>
-          <p class="muted">Real‑time calendar management with rescheduling logic and timezone handling. Reminders by email or SMS.</p>
+          <p class="muted">Real-time calendar management with rescheduling logic and timezone handling. Reminders by email or SMS.</p>
           <ul class="list">
             <li><span class="check">✓</span>Calendar sync (Google / Outlook)</li>
             <li><span class="check">✓</span>Smart rescheduling rules</li>
@@ -165,11 +183,11 @@
         </div>
         <div class="card">
           <h3>Case Correspondence</h3>
-          <p class="muted">Drafts professional emails, agendas, and follow‑ups in your tone. Generates neutral summaries on request.</p>
+          <p class="muted">Drafts professional emails, agendas, and follow-ups in your tone. Generates neutral summaries on request.</p>
           <ul class="list">
             <li><span class="check">✓</span>Templates with your voice</li>
-            <li><span class="check">✓</span>Post‑session notes (optional)</li>
-            <li><span class="check">✓</span>Conflict‑aware language</li>
+            <li><span class="check">✓</span>Post-session notes (optional)</li>
+            <li><span class="check">✓</span>Conflict-aware language</li>
           </ul>
         </div>
       </div>
@@ -198,17 +216,17 @@
         <div class="card">
           <h3>Why mediators choose HarmonyDesk</h3>
           <ul class="list">
-            <li><span class="check">✓</span>Purpose‑built for mediation workflows</li>
+            <li><span class="check">✓</span>Purpose-built for mediation workflows</li>
             <li><span class="check">✓</span>Consistent, professional tone</li>
-            <li><span class="check">✓</span>Fewer back‑and‑forth emails</li>
+            <li><span class="check">✓</span>Fewer back-and-forth emails</li>
             <li><span class="check">✓</span>Clear client experience from first contact</li>
           </ul>
         </div>
         <div class="card">
           <h3>Privacy & boundaries</h3>
           <ul class="list">
-            <li><span class="check">✓</span>Least‑privilege account access</li>
-            <li><span class="check">✓</span>Confidentiality‑first prompts</li>
+            <li><span class="check">✓</span>Least-privilege account access</li>
+            <li><span class="check">✓</span>Confidentiality-first prompts</li>
             <li><span class="check">✓</span>Human review for sensitive items</li>
             <li><span class="warn">!</span>Never drafts legal advice</li>
           </ul>
@@ -223,94 +241,67 @@
             <li><span class="check">✓</span>Email + SMS reminders</li>
           </ul>
           <div class="cta-row">
-            <a class="btn primary" href="#demo">Start a Pilot</a>
+            <!-- CHANGED: "Start a Pilot" now goes straight to Stripe (keeps purchase CTA intact) -->
+            <a class="btn primary"
+               href="https://buy.stripe.com/9B600d6yy4eV5XYah0dZ600"
+               target="_blank"
+               rel="noopener">
+              Start a Pilot
+            </a>
             <a class="btn secondary" href="#faq">Questions?</a>
+
+            <!-- ADDED: extra live demo CTA in pricing area -->
+            <a class="btn secondary"
+               href="https://www.harmonydesk.dev/dashboard"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Live Demo (read-only)
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-   <section id="demo" class="section card">
-  <h2>Request a demo</h2>
-  <p class="muted">
-    No commitment. We’ll show HarmonyDesk with your office hours and a sample intake flow.
-  </p>
+    <!-- CHANGED: Demo section is now focused on live demo instead of request form -->
+    <section id="demo" class="section card">
+      <h2>Try the live demo</h2>
+      <p class="muted">
+        Explore the full HarmonyDesk dashboard with sample data. The demo is <strong>read-only</strong> — all actions are disabled.
+      </p>
 
-  <form onsubmit="handleDemoSubmit(event)">
-    <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:12px">
-      <label>
-        <span class="caps">Your name</span><br>
-        <input
-          required
-          type="text"
-          name="name"
-          placeholder="Jane Mediator"
-          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
-        >
-      </label>
+      <div class="cta-row" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn primary"
+           href="https://www.harmonydesk.dev/dashboard"
+           target="_blank"
+           rel="noopener noreferrer">
+          View Live Demo (read-only)
+        </a>
 
-      <label>
-        <span class="caps">Email</span><br>
-        <input
-          required
-          type="email"
-          name="email"
-          placeholder="jane@example.com"
-          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
-        >
-      </label>
+        <a class="btn secondary"
+           href="https://www.harmonydesk.dev/dashboard"
+           target="_blank"
+           rel="noopener noreferrer">
+          Open Demo Dashboard
+        </a>
 
-      <label style="grid-column:1/-1">
-        <span class="caps">Notes (optional)</span><br>
-        <textarea
-          name="notes"
-          rows="4"
-          placeholder="Tell us about your current admin workflow…"
-          style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--fg);"
-        ></textarea>
-      </label>
-    </div>
+        <a class="btn primary"
+           href="https://buy.stripe.com/9B600d6yy4eV5XYah0dZ600"
+           target="_blank"
+           rel="noopener">
+          Purchase now
+        </a>
 
-    <!-- All three actions in one row -->
-    <div class="cta-row" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-      <!-- Primary: send the demo request (just shows a thank-you in this MVP) -->
-      <button class="btn primary" type="submit">
-        Send request
-      </button>
+        <a class="btn secondary"
+           href="mailto: dgregory3700@dueltech.io"
+           title="Open your email client">
+          Email us
+        </a>
+      </div>
 
-      <!-- Secondary: open email client with fields filled in -->
-      <a
-        class="btn secondary"
-        href="mailto: dgregory3700@dueltech.io"
-        title="Open your email client"
-      >
-        Email us instead
-      </a>
-
-      <!-- Purchase: straight to Lemon Squeezy checkout -->
-      <a
-        class="btn primary"
-        href="https://buy.stripe.com/9B600d6yy4eV5XYah0dZ600"
-        target="_blank"
-        rel="noopener"
-      >
-        Purchase now
-      </a>
-    </div>
-
-    <!-- Single acknowledgement message (no duplicate ids) -->
-    <p
-      id="demo-msg"
-      hidden
-      role="status"
-      class="muted"
-      style="margin-top:10px"
-    >
-      Thanks — your demo request would be sent to our inbox in a live version.
-    </p>
-  </form>
-</section>
-
+      <p class="muted" style="margin-top:12px">
+        Prefer a walkthrough? Email us and we’ll schedule time — otherwise the live demo is the fastest way to see the product.
+      </p>
+    </section>
 
     <section id="faq" class="section">
       <h2>Frequently asked questions</h2>
@@ -325,7 +316,7 @@
         </div>
         <div class="card">
           <h3>What about tone and empathy?</h3>
-          <p class="muted">You set the voice guidelines. HarmonyDesk mirrors your preferred tone for intake, reminders, and follow‑ups.</p>
+          <p class="muted">You set the voice guidelines. HarmonyDesk mirrors your preferred tone for intake, reminders, and follow-ups.</p>
         </div>
         <div class="card">
           <h3>Can I pause or limit actions?</h3>
@@ -339,7 +330,7 @@
     <section class="footer container" aria-label="Footer">
       <div class="foot-links">
         <span class="tag">© <span id="year"></span> HarmonyDesk</span>
-        <span class="tag">Mediation‑first AI</span>
+        <span class="tag">Mediation-first AI</span>
         <span class="tag">Made for solo & small firms</span>
       </div>
       <div class="muted" style="margin-top:8px">We are currently in Test Mode.Thank you for your patience.</div>
@@ -347,43 +338,32 @@
   </main>
 
   <script>
-  function handleDemoSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const msg = document.getElementById('demo-msg');
-
-    if (msg) {
-      msg.hidden = false;
-      msg.textContent =
-        'Thanks — your demo request would be sent to our inbox in a live version.';
-    }
-
-    // Optional: clear the fields so it feels “submitted”
-    form.reset();
-  }
-</script>
+    // Keep year updated (was present in markup but not set previously)
+    (function () {
+      const el = document.getElementById('year');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
+  </script>
 
   <footer class="section" style="border-top:1px solid rgba(255,255,255,.06);margin-top:40px;padding-top:24px;font-size:14px;color:rgba(255,255,255,.6);">
-  <div style="max-width:900px; margin:0 auto;">
-    <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; align-items:center;">
-      <div>
-        <strong>HarmonyDesk</strong> · AI-assisted scheduling and intake for mediators.
-        <br>
-        <span>© 2025 HarmonyDesk. All rights reserved.</span>
-      </div>
-      <div style="text-align:right;">
-        <a href="/privacy.html" style="margin-right:16px;color:rgba(255,255,255,.8);text-decoration:none;">Privacy Policy</a>
-        <a href="/terms.html" style="color:rgba(255,255,255,.8);text-decoration:none;">Terms of Service</a>
-        <a href="https://app.lemonsqueezy.com/my/subscriptions" 
-   style="margin-left:16px;color:rgba(255,255,255,.8);text-decoration:none;">
-    Manage Subscription
-</a>
-
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; align-items:center;">
+        <div>
+          <strong>HarmonyDesk</strong> · AI-assisted scheduling and intake for mediators.
+          <br>
+          <span>© 2025 HarmonyDesk. All rights reserved.</span>
+        </div>
+        <div style="text-align:right;">
+          <a href="/privacy.html" style="margin-right:16px;color:rgba(255,255,255,.8);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms.html" style="color:rgba(255,255,255,.8);text-decoration:none;">Terms of Service</a>
+          <a href="https://app.lemonsqueezy.com/my/subscriptions"
+             style="margin-left:16px;color:rgba(255,255,255,.8);text-decoration:none;">
+            Manage Subscription
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
