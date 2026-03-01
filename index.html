@@ -44,9 +44,13 @@
     .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
     .card.dense{padding:18px}
     .muted{color:var(--muted)}
-    .hero{padding:40px 0 22px}
-    .hero h1{font-size: clamp(28px, 5vw, 48px);line-height:1.15;margin:14px 0}
+
+    /* HERO */
+    .hero{padding:60px 0 40px}
+    .hero-inner{max-width:820px;margin:0 auto}
+    .hero h1{font-size: clamp(28px, 5vw, 48px);line-height:1.2;margin:14px 0}
     .hero p{font-size: clamp(15px, 2.2vw, 20px);color:var(--muted);max-width:800px}
+
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{display:inline-flex;align-items:center;gap:.6rem;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);font-weight:600;transition:.2s ease;cursor:pointer}
     .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2));color:white;border:none}
@@ -103,60 +107,65 @@
 
   <main class="container">
     <section class="hero card">
-      <span class="badge">Purpose-built for mediators</span>
-      <h1>Track cases, sessions, invoices, and county reporting — in one clean dashboard.</h1>
-      <p>
-        HarmonyDesk helps solo and small mediation practices stay organized: manage clients and cases,
-        track sessions on an internal calendar, draft invoices, send them by email, and export county/court reports when you’re ready.
-      </p>
+      <div class="hero-inner">
+        <span class="badge">Purpose-built for mediators</span>
 
-      <div class="cta-row">
-        <a class="btn primary"
-           href="https://www.harmonydesk.dev/dashboard"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="View the HarmonyDesk live demo (read-only)">
-          View Live Demo
-        </a>
+        <h1>Track cases, sessions, invoices, and county reporting — in one clean dashboard.</h1>
 
-        <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">How it works</a>
+        <p>
+          HarmonyDesk helps solo and small mediation practices stay organized: manage clients and cases,
+          track sessions on an internal calendar, draft invoices, send them by email, and export county/court reports when you’re ready.
+        </p>
 
-        <a class="btn primary"
-           href="https://buy.stripe.com/9B600d6yy4eV5XYah0dZ600"
-           target="_blank"
-           rel="noopener"
-           aria-label="Start a 14-day free trial for HarmonyDesk">
-          Start 14-day Free Trial
-        </a>
+        <div class="cta-row">
+          <a class="btn primary"
+             href="https://www.harmonydesk.dev/dashboard"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View the HarmonyDesk live demo (read-only)">
+            View Live Demo
+          </a>
+
+          <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">How it works</a>
+
+          <a class="btn primary"
+             href="https://buy.stripe.com/9B600d6yy4eV5XYah0dZ600"
+             target="_blank"
+             rel="noopener"
+             aria-label="Start a 14-day free trial for HarmonyDesk">
+            Start 14-day Free Trial
+          </a>
+        </div>
+
+        <div class="demo-note">
+          Demo is sample data (read-only). <strong>Demo v0.2</strong> — your paid dashboard may be newer.
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="grid kpis">
+          <div class="card dense">
+            <div class="caps">Cases</div>
+            <div class="price">Organized</div>
+            <div class="muted">Active, closed, and archived — clean lifecycle control</div>
+          </div>
+          <div class="card dense">
+            <div class="caps">Sessions</div>
+            <div class="price">Structured</div>
+            <div class="muted">Linked to cases and tracked on your internal calendar</div>
+          </div>
+          <div class="card dense">
+            <div class="caps">Invoices</div>
+            <div class="price">Controlled</div>
+            <div class="muted">Draft, send by email, track status accurately</div>
+          </div>
+          <div class="card dense">
+            <div class="caps">Reporting</div>
+            <div class="price">Ready</div>
+            <div class="muted">County exports designed for real court workflows</div>
+          </div>
+        </div>
       </div>
-
-      <div class="demo-note">
-        Demo is sample data (read-only). <strong>Demo v0.2</strong> — your paid dashboard may be newer.
-      </div>
-
-      <div class="hr"></div>
-      <div class="grid kpis">
-  <div class="card dense">
-    <div class="caps">Cases</div>
-    <div class="price">Organized</div>
-    <div class="muted">Active, closed, and archived — clean lifecycle control</div>
-  </div>
-  <div class="card dense">
-    <div class="caps">Sessions</div>
-    <div class="price">Structured</div>
-    <div class="muted">Linked to cases and tracked on your internal calendar</div>
-  </div>
-  <div class="card dense">
-    <div class="caps">Invoices</div>
-    <div class="price">Controlled</div>
-    <div class="muted">Draft, send by email, track status accurately</div>
-  </div>
-  <div class="card dense">
-    <div class="caps">Reporting</div>
-    <div class="price">Ready</div>
-    <div class="muted">County exports designed for real court workflows</div>
-  </div>
-</div>
     </section>
 
     <section id="features" class="section">
@@ -289,34 +298,34 @@
     </section>
 
     <section id="faq" class="section">
-  <h2>Common questions</h2>
-  <div class="grid faq">
-    <div class="card">
-      <h3>Who is this for?</h3>
-      <p class="muted">
-        Solo and small mediation practices that want structure without complexity.
-      </p>
-    </div>
-    <div class="card">
-      <h3>What is the core workflow?</h3>
-      <p class="muted">
-        Cases → Sessions → Invoices → Email delivery → County reporting exports.
-      </p>
-    </div>
-    <div class="card">
-      <h3>How fast can I start?</h3>
-      <p class="muted">
-        You can create your first case and session within minutes of signing up.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Can I try it before committing?</h3>
-      <p class="muted">
-        Yes. Explore the read-only demo or start the 14-day free trial to use your own workspace.
-      </p>
-    </div>
-  </div>
-</section>
+      <h2>Common questions</h2>
+      <div class="grid faq">
+        <div class="card">
+          <h3>Who is this for?</h3>
+          <p class="muted">
+            Solo and small mediation practices that want structure without complexity.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What is the core workflow?</h3>
+          <p class="muted">
+            Cases → Sessions → Invoices → Email delivery → County reporting exports.
+          </p>
+        </div>
+        <div class="card">
+          <h3>How fast can I start?</h3>
+          <p class="muted">
+            You can create your first case and session within minutes of signing up.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Can I try it before committing?</h3>
+          <p class="muted">
+            Yes. Explore the read-only demo or start the 14-day free trial to use your own workspace.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <div class="hr"></div>
 
