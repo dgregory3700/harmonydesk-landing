@@ -4,8 +4,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HarmonyDesk — AI Office Assistant for Mediation Practices</title>
-  <meta name="description" content="HarmonyDesk is a specialized AI assistant that manages receptionist and secretarial duties for mediators: intake, scheduling, reminders, and case correspondence." />
+  <title>HarmonyDesk — Mediation Practice Dashboard</title>
+  <meta name="description" content="HarmonyDesk is a mediation practice dashboard for case tracking, sessions, invoicing, outbound email, and county/court reporting exports." />
   <style>
     :root{
       --bg:#0b1020;
@@ -78,15 +78,12 @@
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     .pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;color:var(--muted)}
     .foot-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
-
-    /* small helper */
     .demo-note{font-size:.9rem;color:var(--muted);margin-top:10px}
   </style>
 </head>
 <body>
   <header class="container">
     <div class="logo">
-      <!-- Simple inline SVG mark -->
       <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -99,7 +96,7 @@
       </svg>
       <div>
         <strong>HarmonyDesk</strong><br/>
-        <span class="muted" style="font-size:.9rem">AI Office Assistant for Mediation Practices</span>
+        <span class="muted" style="font-size:.9rem">Mediation Practice Dashboard</span>
       </div>
     </div>
   </header>
@@ -107,9 +104,10 @@
   <main class="container">
     <section class="hero card">
       <span class="badge">Purpose-built for mediators</span>
-      <h1>Offload intake, scheduling, and follow-ups — focus on resolution.</h1>
+      <h1>Track cases, sessions, invoices, and county reporting — in one clean dashboard.</h1>
       <p>
-        HarmonyDesk is a specialized AI assistant that manages receptionist and secretarial duties for solo and small mediation firms. It handles intake, calendars, reminders, and case correspondence with a consistent, professional tone.
+        HarmonyDesk helps solo and small mediation practices stay organized: manage clients and cases,
+        track sessions on an internal calendar, draft invoices, send them by email, and export county/court reports when you’re ready.
       </p>
 
       <div class="cta-row">
@@ -133,62 +131,62 @@
       </div>
 
       <div class="demo-note">
-        Demo is sample data (read-only). Trial unlocks your own workspace.
+        Demo is sample data (read-only). <strong>Demo v0.2</strong> — your paid dashboard may be newer.
       </div>
 
       <div class="hr"></div>
       <div class="grid kpis">
         <div class="card dense">
-          <div class="caps">Time saved</div>
-          <div class="price">10–15 hrs/wk</div>
-          <div class="muted">Typical admin time reclaimed</div>
+          <div class="caps">Setup</div>
+          <div class="price">Minutes</div>
+          <div class="muted">Create cases, add sessions, start invoicing</div>
         </div>
         <div class="card dense">
-          <div class="caps">Response coverage</div>
-          <div class="price">24/7</div>
-          <div class="muted">No missed calls or emails</div>
+          <div class="caps">Sessions</div>
+          <div class="price">Calendar</div>
+          <div class="muted">Internal, mediator-controlled session tracking</div>
         </div>
         <div class="card dense">
-          <div class="caps">Implementation</div>
-          <div class="price">&lt; 1 hr</div>
-          <div class="muted">Connect calendar, email, SMS</div>
+          <div class="caps">Invoices</div>
+          <div class="price">Email</div>
+          <div class="muted">Draft → Send by email (truthful status)</div>
         </div>
         <div class="card dense">
-          <div class="caps">Privacy</div>
-          <div class="price">Client-safe</div>
-          <div class="muted">Confidentiality-forward defaults</div>
+          <div class="caps">Reporting</div>
+          <div class="price">County</div>
+          <div class="muted">Exports built for court/county workflows</div>
         </div>
       </div>
     </section>
 
     <section id="features" class="section">
-      <h2>What HarmonyDesk manages for you</h2>
+      <h2>What HarmonyDesk does today</h2>
       <div class="grid features">
         <div class="card">
-          <h3>Reception & Intake</h3>
-          <p class="muted">Capture inquiries, answer routine questions, and route urgent requests. Intake forms go out automatically with clear instructions.</p>
+          <h3>Case tracking</h3>
+          <p class="muted">Keep your practice organized with a clean case list and a simple lifecycle.</p>
           <ul class="list">
-            <li><span class="check">✓</span>Call & email triage</li>
-            <li><span class="check">✓</span>Automated intake form delivery</li>
-            <li><span class="check">✓</span>Standard info packets</li>
+            <li><span class="check">✓</span>Active / Closed / Archive</li>
+            <li><span class="check">✓</span>Cases linked to clients</li>
+            <li><span class="check">✓</span>Next session derived from sessions</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Scheduling & Reminders</h3>
-          <p class="muted">Real-time calendar management with rescheduling logic and timezone handling. Reminders by email or SMS.</p>
+          <h3>Sessions calendar</h3>
+          <p class="muted">Track mediation sessions inside HarmonyDesk (not a booking tool, not a calendar sync).</p>
           <ul class="list">
-            <li><span class="check">✓</span>Calendar sync (Google / Outlook)</li>
-            <li><span class="check">✓</span>Smart rescheduling rules</li>
-            <li><span class="check">✓</span>Reminders & confirmations</li>
+            <li><span class="check">✓</span>Session history per case</li>
+            <li><span class="check">✓</span>Upcoming vs completed sessions</li>
+            <li><span class="check">✓</span>Refresh-safe, real persistence</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Case Correspondence</h3>
-          <p class="muted">Drafts professional emails, agendas, and follow-ups in your tone. Generates neutral summaries on request.</p>
+          <h3>Invoices + county reporting</h3>
+          <p class="muted">Draft invoices, email them out, and export reports for county/court workflows.</p>
           <ul class="list">
-            <li><span class="check">✓</span>Templates with your voice</li>
-            <li><span class="check">✓</span>Post-session notes (optional)</li>
-            <li><span class="check">✓</span>Conflict-aware language</li>
+            <li><span class="check">✓</span>Invoices: Draft → Sent via email</li>
+            <li><span class="check">✓</span>County assignment per invoice</li>
+            <li><span class="check">✓</span>County exports with “reported” stamping</li>
           </ul>
         </div>
       </div>
@@ -198,16 +196,16 @@
       <h2>How it works</h2>
       <div class="grid how">
         <div>
-          <div class="pill"><span class="mono">1</span> Connect</div>
-          <p class="muted">Link your calendar, email, and (optionally) SMS number. We use read/write scopes only for operations you approve.</p>
+          <div class="pill"><span class="mono">1</span> Organize</div>
+          <p class="muted">Create clients and cases. Keep your practice structure clean and searchable.</p>
         </div>
         <div>
-          <div class="pill"><span class="mono">2</span> Configure</div>
-          <p class="muted">Choose office hours, intake questions, and preferred tone. Upload your standard documents and policies.</p>
+          <div class="pill"><span class="mono">2</span> Track sessions</div>
+          <p class="muted">Add sessions to cases and manage them on the internal calendar.</p>
         </div>
         <div>
-          <div class="pill"><span class="mono">3</span> Operate</div>
-          <p class="muted">HarmonyDesk triages messages, schedules sessions, and drafts correspondence. You keep full review and override control.</p>
+          <div class="pill"><span class="mono">3</span> Bill + report</div>
+          <p class="muted">Draft invoices, send them by email, then export county/court reports when ready.</p>
         </div>
       </div>
     </section>
@@ -217,29 +215,30 @@
         <div class="card">
           <h3>Why mediators choose HarmonyDesk</h3>
           <ul class="list">
-            <li><span class="check">✓</span>Purpose-built for mediation workflows</li>
-            <li><span class="check">✓</span>Consistent, professional tone</li>
-            <li><span class="check">✓</span>Fewer back-and-forth emails</li>
-            <li><span class="check">✓</span>Clear client experience from first contact</li>
+            <li><span class="check">✓</span>Designed around mediation workflow (cases → sessions → billing)</li>
+            <li><span class="check">✓</span>Simple, fast UI (no clutter)</li>
+            <li><span class="check">✓</span>Truthful invoice email delivery semantics</li>
+            <li><span class="check">✓</span>County reporting exports built-in</li>
           </ul>
         </div>
         <div class="card">
           <h3>Privacy & boundaries</h3>
           <ul class="list">
-            <li><span class="check">✓</span>Least-privilege account access</li>
-            <li><span class="check">✓</span>Confidentiality-first prompts</li>
-            <li><span class="check">✓</span>Human review for sensitive items</li>
-            <li><span class="warn">!</span>Never drafts legal advice</li>
+            <li><span class="check">✓</span>Workspace-scoped data (your records stay separated)</li>
+            <li><span class="check">✓</span>Confidentiality-forward defaults</li>
+            <li><span class="check">✓</span>You control what gets emailed and when</li>
+            <li><span class="warn">!</span>No legal advice features</li>
           </ul>
         </div>
         <div class="card">
           <h3>Simple pricing</h3>
-          <p class="muted">Start with a pilot. Scale only if it saves meaningful time.</p>
+          <p class="muted">A single plan focused on the core workflow.</p>
           <div class="price">$149/mo</div>
           <ul class="list">
-            <li><span class="check">✓</span>Up to 2 calendars</li>
-            <li><span class="check">✓</span>500 messages/mo</li>
-            <li><span class="check">✓</span>Email + SMS reminders</li>
+            <li><span class="check">✓</span>Case + client management</li>
+            <li><span class="check">✓</span>Sessions calendar</li>
+            <li><span class="check">✓</span>Invoices + outbound email</li>
+            <li><span class="check">✓</span>County reporting exports</li>
           </ul>
           <div class="cta-row">
             <a class="btn primary"
@@ -260,7 +259,6 @@
       </div>
     </section>
 
-    <!-- Keep section label, remove form. Only Email + Purchase + Demo link -->
     <section id="demo" class="section card">
       <h2>Request a demo</h2>
       <p class="muted">
@@ -294,20 +292,20 @@
       <h2>Frequently asked questions</h2>
       <div class="grid faq">
         <div class="card">
-          <h3>Do I need new software?</h3>
-          <p class="muted">No. HarmonyDesk connects to tools you already use — your calendar, email, and (optionally) a phone/SMS line.</p>
+          <h3>Does it sync with Google/Outlook calendar?</h3>
+          <p class="muted">Not today. Sessions are tracked inside HarmonyDesk as an internal calendar for your mediation work.</p>
         </div>
         <div class="card">
-          <h3>Is it compliant with confidentiality?</h3>
-          <p class="muted">We design for confidentiality from the start. You choose what the assistant can access and where human review is required.</p>
+          <h3>Does it send reminders by SMS?</h3>
+          <p class="muted">No. HarmonyDesk supports outbound email for invoices and messages; it does not provide SMS reminders.</p>
         </div>
         <div class="card">
-          <h3>What about tone and empathy?</h3>
-          <p class="muted">You set the voice guidelines. HarmonyDesk mirrors your preferred tone for intake, reminders, and follow-ups.</p>
+          <h3>Is it a booking link tool?</h3>
+          <p class="muted">No. HarmonyDesk is not a booking links product. Sessions are entered and managed by the mediator.</p>
         </div>
         <div class="card">
-          <h3>Can I pause or limit actions?</h3>
-          <p class="muted">Yes. You can require approval for certain tasks and set working hours and scope boundaries anytime.</p>
+          <h3>What’s the core workflow?</h3>
+          <p class="muted">Cases → Sessions → Invoices → Email sending → County reporting exports.</p>
         </div>
       </div>
     </section>
@@ -317,8 +315,8 @@
     <section class="footer container" aria-label="Footer">
       <div class="foot-links">
         <span class="tag">© <span id="year"></span> HarmonyDesk</span>
-        <span class="tag">Mediation-first AI</span>
-        <span class="tag">Made for solo & small firms</span>
+        <span class="tag">Built for mediation practices</span>
+        <span class="tag">Case → sessions → billing</span>
         <a class="tag"
            href="https://app.harmonydesk.ai/login"
            style="text-decoration:underline; text-underline-offset:3px"
@@ -344,7 +342,7 @@
     <div style="max-width:900px; margin:0 auto;">
       <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; align-items:center;">
         <div>
-          <strong>HarmonyDesk</strong> · AI-assisted scheduling and intake for mediators.
+          <strong>HarmonyDesk</strong> · Mediation practice dashboard for sessions, billing, and reporting.
           <br>
           <span>© 2025 HarmonyDesk. All rights reserved.</span>
         </div>
