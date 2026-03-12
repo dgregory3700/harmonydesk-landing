@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
   <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
-  <script async src='https://r.wdfl.co/rw.js' data-rewardful='d91f66'></script>
+  <script async src="https://r.wdfl.co/rw.js" data-rewardful="d91f66"></script>
+
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HarmonyDesk — Mediation Practice Dashboard</title>
-  <meta name="description" content="HarmonyDesk is a mediation practice dashboard for case tracking, sessions, invoicing, outbound email, and county/court reporting exports." />
+  <meta
+    name="description"
+    content="HarmonyDesk is a mediation practice dashboard for case tracking, sessions, invoicing, outbound email, and county/court reporting exports."
+  />
+
   <style>
     :root{
       --bg:#0b1020;
@@ -37,73 +42,229 @@
         --shadow:0 8px 24px rgba(2,8,23,.08);
       }
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 500px at 50% -100px, rgba(106,167,255,.18), transparent 60%),var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    html,body{
+      margin:0;
+      padding:0;
+      background:
+        radial-gradient(1200px 500px at 50% -100px, rgba(106,167,255,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--maxw);margin:0 auto;padding:28px 22px}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .75rem;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:.825rem;color:var(--muted);background:rgba(255,255,255,.03);backdrop-filter: blur(6px)}
     .grid{display:grid;gap:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
     .card.dense{padding:18px}
     .muted{color:var(--muted)}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.375rem .75rem;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      font-size:.825rem;
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      backdrop-filter: blur(6px);
+    }
 
-    /* HERO */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .topnav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+    }
+
+    .topnav a{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .topnav a:hover{
+      color:var(--text);
+    }
+
     .hero{padding:60px 0 40px}
     .hero-inner{max-width:820px;margin:0 auto}
-    .hero h1{font-size: clamp(28px, 5vw, 48px);line-height:1.2;margin:14px 0}
-    .hero p{font-size: clamp(15px, 2.2vw, 20px);color:var(--muted);max-width:800px}
+    .hero h1{font-size:clamp(28px, 5vw, 48px);line-height:1.2;margin:14px 0}
+    .hero p{font-size:clamp(15px, 2.2vw, 20px);color:var(--muted);max-width:800px}
 
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);font-weight:600;transition:.2s ease;cursor:pointer}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:600;
+      transition:.2s ease;
+      cursor:pointer;
+    }
     .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2));color:white;border:none}
     .btn.secondary{background:transparent;color:var(--text)}
     .btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.22)}
+
     .section{padding:32px 0}
-    .section h2{font-size: clamp(22px, 4vw, 32px);margin:6px 0 14px}
+    .section h2{font-size:clamp(22px, 4vw, 32px);margin:6px 0 14px}
+
     .kpis{grid-template-columns: repeat(4, minmax(0,1fr))}
     .features{grid-template-columns: repeat(3, minmax(0,1fr))}
     .how{grid-template-columns: repeat(3, minmax(0,1fr))}
     .faq{grid-template-columns: repeat(2, minmax(0,1fr))}
-    .footer{padding:40px 0 70px;color:var(--muted);font-size:.95rem}
+    .two{grid-template-columns: repeat(2, minmax(0,1fr))}
+
     @media (max-width: 960px){
       .kpis{grid-template-columns: repeat(2, minmax(0,1fr))}
       .features{grid-template-columns: repeat(2, minmax(0,1fr))}
       .how{grid-template-columns: repeat(1, minmax(0,1fr))}
       .faq{grid-template-columns: repeat(1, minmax(0,1fr))}
+      .two{grid-template-columns: repeat(1, minmax(0,1fr))}
     }
-    .hr{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);margin:24px 0}
+
+    @media (max-width: 640px){
+      .kpis{grid-template-columns: repeat(1, minmax(0,1fr))}
+      .features{grid-template-columns: repeat(1, minmax(0,1fr))}
+    }
+
+    .hr{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      margin:24px 0;
+    }
+
     .logo{display:flex;align-items:center;gap:.65rem}
     .logo svg{width:34px;height:34px}
     .tag{display:inline-block;font-size:.8rem;color:var(--muted);margin-right:10px}
     .price{font-size:2rem;font-weight:800}
     .list{padding-left:0;margin:0;list-style:none}
     .list li{display:flex;gap:.6rem;align-items:flex-start;margin:8px 0}
-    .check{display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(20,220,120,.14);color:var(--ok);width:22px;height:22px}
-    .warn{display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:rgba(255,193,7,.12);color:var(--warn);width:22px;height:22px}
+    .check{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+      background:rgba(20,220,120,.14);
+      color:var(--ok);
+      width:22px;
+      height:22px;
+      flex:0 0 22px;
+    }
+    .warn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+      background:rgba(255,193,7,.12);
+      color:var(--warn);
+      width:22px;
+      height:22px;
+      flex:0 0 22px;
+    }
     .caps{text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:.78rem;color:var(--muted)}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    .pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;color:var(--muted)}
-    .foot-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      padding:.4rem .7rem;
+      font-size:.8rem;
+      color:var(--muted);
+    }
     .demo-note{font-size:.9rem;color:var(--muted);margin-top:10px}
+
+    .footer{
+      padding:40px 0 70px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .foot-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .footer-legal{
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top:40px;
+      padding-top:24px;
+      font-size:14px;
+      color:rgba(255,255,255,.68);
+    }
+
+    .footer-legal-grid{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+      align-items:center;
+    }
+
+    .footer-legal a{
+      color:rgba(255,255,255,.82);
+    }
+
+    .right{text-align:right}
+
+    @media (max-width: 800px){
+      .footer-legal-grid{
+        grid-template-columns: 1fr;
+      }
+      .right{text-align:left}
+    }
   </style>
 </head>
 <body>
   <header class="container">
-    <div class="logo">
-      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="var(--brand)"/>
-            <stop offset="1" stop-color="var(--brand-2)"/>
-          </linearGradient>
-        </defs>
-        <rect x="6" y="10" width="52" height="44" rx="10" fill="url(#g)" opacity=".9"/>
-        <path d="M18 25h28M18 33h20M18 41h28" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-      </svg>
-      <div>
-        <strong>HarmonyDesk</strong><br/>
-        <span class="muted" style="font-size:.9rem">Mediation Practice Dashboard</span>
+    <div class="topbar">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--brand)"/>
+              <stop offset="1" stop-color="var(--brand-2)"/>
+            </linearGradient>
+          </defs>
+          <rect x="6" y="10" width="52" height="44" rx="10" fill="url(#g)" opacity=".9"/>
+          <path d="M18 25h28M18 33h20M18 41h28" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+        </svg>
+        <div>
+          <strong>HarmonyDesk</strong><br/>
+          <span class="muted" style="font-size:.9rem">Mediation Practice Dashboard</span>
+        </div>
       </div>
+
+      <nav class="topnav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="/affiliates.html">Affiliates</a>
+        <a href="https://app.harmonydesk.ai/login">Customer login</a>
+      </nav>
     </div>
   </header>
 
@@ -120,21 +281,27 @@
         </p>
 
         <div class="cta-row">
-          <a class="btn primary"
-             href="https://www.harmonydesk.dev/dashboard"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View the HarmonyDesk live demo (read-only)">
+          <a
+            class="btn primary"
+            href="https://www.harmonydesk.dev/dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View the HarmonyDesk live demo (read-only)"
+          >
             View Live Demo
           </a>
 
-          <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">How it works</a>
+          <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">
+            How it works
+          </a>
 
-          <a class="btn primary"
-             href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
-             target="_blank"
-             rel="noopener"
-             aria-label="Start a 14-day free trial for HarmonyDesk">
+          <a
+            class="btn primary"
+            href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
+            target="_blank"
+            rel="noopener"
+            aria-label="Start a 14-day free trial for HarmonyDesk"
+          >
             Start 14-day Free Trial
           </a>
         </div>
@@ -182,6 +349,7 @@
             <li><span class="check">✓</span>Next session derived from sessions</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Sessions calendar</h3>
           <p class="muted">Track mediation sessions inside HarmonyDesk (not a booking tool, not a calendar sync).</p>
@@ -191,13 +359,14 @@
             <li><span class="check">✓</span>Refresh-safe, real persistence</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Invoices + county reporting</h3>
           <p class="muted">Draft invoices, email them out, and export reports for county/court workflows.</p>
           <ul class="list">
             <li><span class="check">✓</span>Invoices: Draft → Sent via email</li>
             <li><span class="check">✓</span>County assignment per invoice</li>
-            <li><span class="check">✓</span>County exports with “reported” stamping</li>
+            <li><span class="check">✓</span>County exports with reported stamping</li>
           </ul>
         </div>
       </div>
@@ -232,6 +401,7 @@
             <li><span class="check">✓</span>County reporting exports built-in</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Privacy & boundaries</h3>
           <ul class="list">
@@ -241,6 +411,7 @@
             <li><span class="warn">!</span>No legal advice features</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Simple pricing</h3>
           <p class="muted">A single plan focused on the core workflow.</p>
@@ -252,19 +423,53 @@
             <li><span class="check">✓</span>County reporting exports</li>
           </ul>
           <div class="cta-row">
-            <a class="btn primary"
-               href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn primary"
+              href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
+              target="_blank"
+              rel="noopener"
+            >
               Start 14-day Free Trial
             </a>
-            <a class="btn secondary"
-               href="https://www.harmonydesk.dev/dashboard"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              class="btn secondary"
+              href="https://www.harmonydesk.dev/dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View Live Demo (read-only)
             </a>
             <a class="btn secondary" href="#faq">Questions?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>Partner with HarmonyDesk</h2>
+      <div class="grid two">
+        <div>
+          <p class="muted">
+            If you serve mediators, train mediators, publish for mediation professionals, or run an ADR community,
+            you can apply to promote HarmonyDesk through our affiliate program.
+          </p>
+          <ul class="list">
+            <li><span class="check">✓</span>40% recurring commission</li>
+            <li><span class="check">✓</span>60-day cookie window</li>
+            <li><span class="check">✓</span>Clear product positioning and simple share link</li>
+          </ul>
+        </div>
+        <div>
+          <div class="cta-row">
+            <a class="btn primary" href="/affiliates.html">View affiliate program</a>
+            <a
+              class="btn secondary"
+              href="https://dueltech.getrewardful.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply as an affiliate
+            </a>
           </div>
         </div>
       </div>
@@ -277,23 +482,25 @@
       </p>
 
       <div class="cta-row" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn secondary"
-           href="mailto: duel@dueltech.io"
-           title="Open your email client">
+        <a class="btn secondary" href="mailto:duel@dueltech.io" title="Open your email client">
           Email us
         </a>
 
-        <a class="btn primary"
-           href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
-           target="_blank"
-           rel="noopener">
+        <a
+          class="btn primary"
+          href="https://buy.stripe.com/7sY3cp4qq3aR9aa1KudZ601"
+          target="_blank"
+          rel="noopener"
+        >
           Purchase now
         </a>
 
-        <a class="btn secondary"
-           href="https://www.harmonydesk.dev/dashboard"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+          class="btn secondary"
+          href="https://www.harmonydesk.dev/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View Live Demo (read-only)
         </a>
       </div>
@@ -308,18 +515,21 @@
             Solo and small mediation practices that want structure without complexity.
           </p>
         </div>
+
         <div class="card">
           <h3>What is the core workflow?</h3>
           <p class="muted">
             Cases → Sessions → Invoices → Email delivery → County reporting exports.
           </p>
         </div>
+
         <div class="card">
           <h3>How fast can I start?</h3>
           <p class="muted">
             You can create your first case and session within minutes of signing up.
           </p>
         </div>
+
         <div class="card">
           <h3>Can I try it before committing?</h3>
           <p class="muted">
@@ -331,15 +541,25 @@
 
     <div class="hr"></div>
 
-    <section class="footer container" aria-label="Footer">
+    <section class="footer" aria-label="Footer">
       <div class="foot-links">
         <span class="tag">© <span id="year"></span> HarmonyDesk</span>
         <span class="tag">Built for mediation practices</span>
         <span class="tag">Case → sessions → billing</span>
-        <a class="tag"
-           href="https://app.harmonydesk.ai/login"
-           style="text-decoration:underline; text-underline-offset:3px"
-           aria-label="Customer login">
+        <a
+          class="tag"
+          href="/affiliates.html"
+          style="text-decoration:underline; text-underline-offset:3px"
+          aria-label="Affiliate program"
+        >
+          Affiliate program
+        </a>
+        <a
+          class="tag"
+          href="https://app.harmonydesk.ai/login"
+          style="text-decoration:underline; text-underline-offset:3px"
+          aria-label="Customer login"
+        >
           Customer login
         </a>
       </div>
@@ -352,27 +572,36 @@
 
   <script>
     (function () {
-      const el = document.getElementById('year');
+      const el = document.getElementById("year");
       if (el) el.textContent = new Date().getFullYear();
     })();
   </script>
 
-  <footer class="section" style="border-top:1px solid rgba(255,255,255,.06);margin-top:40px;padding-top:24px;font-size:14px;color:rgba(255,255,255,.6);">
-    <div style="max-width:900px; margin:0 auto;">
-      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; align-items:center;">
-        <div>
-          <strong>HarmonyDesk</strong> · Mediation practice dashboard for sessions, billing, and reporting.
-          <br>
-          <span>© 2025 HarmonyDesk. All rights reserved.</span>
-        </div>
-        <div style="text-align:right;">
-          <a href="/privacy.html" style="margin-right:16px;color:rgba(255,255,255,.8);text-decoration:none;">Privacy Policy</a>
-          <a href="/terms.html" style="color:rgba(255,255,255,.8);text-decoration:none;">Terms of Service</a>
-          <a href="https://app.harmonydesk.ai/login" style="margin-left:16px;color:rgba(255,255,255,.8);text-decoration:none;">Customer login</a>
-        </div>
+  <footer class="footer-legal">
+    <div class="footer-legal-grid">
+      <div>
+        <strong>HarmonyDesk</strong> · Mediation practice dashboard for sessions, billing, and reporting.
+        <br />
+        <span>© <span id="year2"></span> HarmonyDesk. All rights reserved.</span>
+      </div>
+
+      <div class="right">
+        <a href="/privacy.html" style="margin-right:16px;text-decoration:none;">Privacy Policy</a>
+        <a href="/terms.html" style="text-decoration:none;">Terms of Service</a>
+        <a href="/affiliates.html" style="margin-left:16px;text-decoration:none;">Affiliates</a>
+        <a href="https://app.harmonydesk.ai/login" style="margin-left:16px;text-decoration:none;">Customer login</a>
       </div>
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const y1 = document.getElementById("year");
+      const y2 = document.getElementById("year2");
+      const year = new Date().getFullYear();
+      if (y1) y1.textContent = year;
+      if (y2) y2.textContent = year;
+    })();
+  </script>
 </body>
 </html>
