@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!--
+  HarmonyDesk homepage (live). Open items (search this file for "TODO(Duel)"):
+    1. Founder photo: the placeholder circle is hidden (commented out) until a real photo exists.
+    2. Founding-member claim path: currently a mailto; may switch to a Stripe promo code later.
+    3. "See it in action" screenshot section is hidden (commented out) until real screenshots exist.
+    4. og:image / twitter:image are commented out until a social image exists.
+-->
 <html lang="en">
 <head>
   <script>(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');</script>
@@ -7,11 +14,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HarmonyDesk — Mediation Practice Dashboard</title>
+  <title>HarmonyDesk — Court paperwork, invoicing &amp; county reporting for Florida mediators</title>
   <meta
     name="description"
-    content="HarmonyDesk is a mediation practice dashboard: take session requests from a private booking link, confirm them with automatic calendar invites, generate court-ready documents from your own templates, and handle invoicing and county reporting — all in one place."
+    content="Use your own county court Word templates: mark the blanks once and HarmonyDesk fills them from your case and session details. Invoicing, county report exports, and built-in session booking. Built for Florida-certified mediators. $99/month, 14-day free trial."
   />
+  <link rel="canonical" href="https://www.harmonydesk.ai/" />
+
+  <!-- Open Graph / social previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="HarmonyDesk" />
+  <meta property="og:url" content="https://www.harmonydesk.ai/" />
+  <meta property="og:title" content="HarmonyDesk — Your county court templates, filled in every time" />
+  <meta property="og:description" content="For Florida-certified mediators: mark the blanks in your own county court Word templates once and HarmonyDesk fills them in, plus invoicing, county report exports, and built-in session booking." />
+  <!-- TODO(Duel): og:image / twitter:image are intentionally commented out. To restore: add a 1200x630 social image, upload it as /og-image.png, then uncomment the two lines below. -->
+  <!-- <meta property="og:image" content="https://www.harmonydesk.ai/og-image.png" /> -->
+  <!-- <meta name="twitter:image" content="https://www.harmonydesk.ai/og-image.png" /> -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HarmonyDesk — Your county court templates, filled in every time" />
+  <meta name="twitter:description" content="For Florida-certified mediators: your own court templates, invoicing, county report exports, and built-in session booking in one place." />
 
   <style>
     :root{
@@ -229,12 +250,49 @@
     }
 
     .right{text-align:right}
+    @media (prefers-color-scheme: light){
+      .footer-legal{color:var(--muted);border-top-color:rgba(2,8,23,.08)}
+      .footer-legal a{color:var(--text)}
+    }
 
     @media (max-width: 800px){
       .footer-legal-grid{
         grid-template-columns: 1fr;
       }
       .right{text-align:left}
+    }
+
+    /* ---- Draft additions (same tokens as above) ---- */
+    .shots{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .shot{
+      aspect-ratio:16/10;
+      border:2px dashed rgba(255,255,255,.22);
+      border-radius:var(--radius);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:18px;color:var(--muted);
+      background:rgba(255,255,255,.02);
+    }
+    .shot strong{color:var(--text)}
+    .founder{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center}
+    .founder.no-photo{grid-template-columns:1fr}
+    .photo{
+      width:160px;height:160px;border-radius:50%;
+      border:2px dashed rgba(255,255,255,.22);
+      display:flex;align-items:center;justify-content:center;
+      font-size:2.4rem;font-weight:800;color:var(--muted);
+      background:linear-gradient(135deg, rgba(106,167,255,.18), rgba(148,225,255,.08));
+    }
+    .offer{border-color:rgba(168,255,207,.35)}
+    .offer .price{color:var(--accent)}
+    .terms{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .small{font-size:.9rem}
+    .section.card + .section.card{margin-top:18px}
+    @media (max-width: 960px){
+      .shots{grid-template-columns: repeat(1, minmax(0,1fr))}
+      .terms{grid-template-columns: repeat(1, minmax(0,1fr))}
+    }
+    @media (max-width: 640px){
+      .founder{grid-template-columns:1fr}
     }
   </style>
   <script>
@@ -265,6 +323,7 @@
       <nav class="topnav" aria-label="Primary">
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
+        <a href="#founding">Founding members</a>
         <a href="#faq">FAQ</a>
         <a href="/affiliates.html">Referral Program</a>
         <a href="https://pro.harmonydesk.ai/login">Customer login</a>
@@ -275,31 +334,18 @@
   <main class="container">
     <section class="hero card">
       <div class="hero-inner">
-        <span class="badge">Purpose-built for mediators</span>
+        <span class="badge">For Florida Supreme Court-certified mediators</span>
 
-        <h1>Run your mediation practice — scheduling, sessions, documents, and billing — from one dashboard.</h1>
+        <h1>Use your own county court Word templates. Mark the blanks once, and HarmonyDesk fills them in every time.</h1>
 
         <p>
-          HarmonyDesk gives solo and small mediation practices a single place to work. Let clients request sessions from a
-          private booking link, approve them with automatic confirmation emails and calendar invites, generate court-ready
-          documents from your own templates, and handle invoicing and county reporting — without juggling five tools.
+          Upload the .docx / .dotx templates you already use and mark the blanks once. HarmonyDesk fills them from your case
+          and session details, sends your invoices, and builds county reports for you to download and submit. Clients request
+          sessions from your private link, and you approve each one. Made for Florida mediators in private practice,
+          starting with family mediators.
         </p>
 
         <div class="cta-row">
-          <a
-            class="btn primary"
-            href="https://www.harmonydesk.dev/dashboard"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="View the HarmonyDesk live demo (read-only)"
-          >
-            View Live Demo
-          </a>
-
-          <a class="btn secondary" href="#how" aria-label="Learn how HarmonyDesk works">
-            How it works
-          </a>
-
           <a
             class="btn primary"
             href="https://buy.stripe.com/8x2fZbcWW9zfdqqfBkdZ602"
@@ -310,34 +356,44 @@
           >
             Start 14-day Free Trial
           </a>
+
+          <a
+            class="btn secondary"
+            href="https://www.harmonydesk.dev/dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View the HarmonyDesk live demo (read-only)"
+          >
+            View Live Demo
+          </a>
         </div>
 
         <div class="demo-note">
-          Demo is sample data (read-only). Your paid dashboard runs on your own private workspace.
+          $99/month after a 14-day free trial (card required at checkout). The demo uses sample data and is read-only.
         </div>
 
         <div class="hr"></div>
 
         <div class="grid kpis">
           <div class="card dense">
-            <div class="caps">Scheduling</div>
-            <div class="price">Self-serve</div>
-            <div class="muted">Clients request sessions; you approve in one click</div>
+            <div class="caps">Court documents</div>
+            <div class="price">Yours</div>
+            <div class="muted">Your own county .docx / .dotx files; mark the blanks once</div>
           </div>
           <div class="card dense">
-            <div class="caps">Sessions</div>
-            <div class="price">Confirmed</div>
-            <div class="muted">Approvals send a calendar invite automatically</div>
+            <div class="caps">County reporting</div>
+            <div class="price">Exported</div>
+            <div class="muted">Download a CSV or PDF county report and submit it yourself</div>
           </div>
           <div class="card dense">
-            <div class="caps">Documents</div>
-            <div class="price">Court-ready</div>
-            <div class="muted">Filled from your case and session data</div>
-          </div>
-          <div class="card dense">
-            <div class="caps">Billing</div>
+            <div class="caps">Invoicing</div>
             <div class="price">Handled</div>
-            <div class="muted">Invoices, email delivery, and county reporting</div>
+            <div class="muted">Draft invoices and email them from one place</div>
+          </div>
+          <div class="card dense">
+            <div class="caps">Session booking</div>
+            <div class="price">Built in</div>
+            <div class="muted">Private request link; approve in one click, invites go out</div>
           </div>
         </div>
       </div>
@@ -347,51 +403,71 @@
       <h2>What HarmonyDesk does today</h2>
       <div class="grid features">
         <div class="card">
-          <h3>Session requests &amp; scheduling</h3>
-          <p class="muted">Share a private booking link. Requests land in your inbox; approve or decline in a click.</p>
+          <h3>Use your own county court Word templates</h3>
+          <p class="muted">Mark the blanks once, and HarmonyDesk fills them in every time. Upload any .docx or .dotx file and put double braces where a value goes, like <span class="mono">&#123;&#123;case_number&#125;&#125;</span>. HarmonyDesk fills only those marked spots.</p>
           <ul class="list">
-            <li><span class="check">✓</span>Public request link for clients</li>
-            <li><span class="check">✓</span>Approve / decline inbox with live count</li>
-            <li><span class="check">✓</span>Approvals send confirmations + calendar invites</li>
+            <li><span class="check">✓</span>Filled automatically: case number, county, petitioner and respondent names, session date and time</li>
+            <li><span class="check">✓</span>Also automatic: your name, business, email and phone</li>
+            <li><span class="check">✓</span><span>Any other <span class="mono">&#123;&#123;field&#125;&#125;</span> becomes a box you type into before downloading</span></li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Court document generation</h3>
-          <p class="muted">Upload your own county court templates and let HarmonyDesk fill them from your records.</p>
-          <ul class="list">
-            <li><span class="check">✓</span>Your own .docx / .dotx templates</li>
-            <li><span class="check">✓</span>Auto-fill from case, session &amp; mediator details</li>
-            <li><span class="check">✓</span>Download a ready-to-file document</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Billing &amp; county reporting</h3>
-          <p class="muted">Draft invoices, email them out, and export reports for county and court workflows.</p>
+          <h3>Invoicing &amp; county reporting</h3>
+          <p class="muted">Draft invoices, email them out, and build your county report. You download the report and submit it yourself; nothing is sent to the court automatically.</p>
           <ul class="list">
             <li><span class="check">✓</span>Invoices: draft → sent via email</li>
-            <li><span class="check">✓</span>County assignment per invoice</li>
-            <li><span class="check">✓</span>County exports with reported stamping</li>
+            <li><span class="check">✓</span>County report as CSV or PDF</li>
+            <li><span class="check">✓</span>Exporting marks those invoices as reported, so they aren't counted twice</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Built-in session booking</h3>
+          <p class="muted">Share your private request link, approve in one click, and HarmonyDesk sends confirmations with calendar invites that work with Google Calendar, Outlook and Apple Calendar.</p>
+          <ul class="list">
+            <li><span class="check">✓</span>Clients pick 1 to 3 preferred dates, a time of day, Zoom or in person, and the expected length</li>
+            <li><span class="check">✓</span>Requests land in your Session Requests inbox</li>
+            <li><span class="check">✓</span>Approve with the final time, or decline with a note</li>
+            <li><span class="check">✓</span>On approval, you and your client each get a confirmation email with a calendar invite</li>
           </ul>
         </div>
       </div>
     </section>
+
+    <!-- TODO(Duel): "See it in action" section is HIDDEN because the 4 screenshots are still placeholders.
+         To restore: add real screenshots (sample data only), e.g. /img/session-requests.png, /img/court-document.png,
+         /img/invoice.png, /img/county-report.png, replace each <div class="shot">...</div> below with
+         <img src="/img/....png" alt="..."> (suggested alt: "Session request inbox with approve and decline buttons", etc.),
+         then delete the "HIDDEN: screenshots START" and "HIDDEN: screenshots END" comment lines.
+         Optionally add <a href="#screens">See it in action</a> to the top nav. -->
+    <!-- HIDDEN: screenshots START
+    <section id="screens" class="section">
+      <h2>See it in action</h2>
+      <p class="muted">Screenshots use sample data only.</p>
+      <div class="grid shots">
+        <div class="shot"><strong>Screenshot: Session request inbox</strong><span class="small">Approve or decline requests from your private request link</span></div>
+        <div class="shot"><strong>Screenshot: Filled court document</strong><span class="small">Your marked county template, filled from case and session details</span></div>
+        <div class="shot"><strong>Screenshot: Invoice</strong><span class="small">Drafted and emailed from HarmonyDesk</span></div>
+        <div class="shot"><strong>Screenshot: County report export</strong><span class="small">CSV or PDF, ready for you to submit</span></div>
+      </div>
+    </section>
+    HIDDEN: screenshots END -->
 
     <section id="how" class="section card">
       <h2>How it works</h2>
       <div class="grid how">
         <div>
           <div class="pill"><span class="mono">1</span> Set up</div>
-          <p class="muted">Add your clients and share your private booking link. Your practice structure stays clean and searchable.</p>
+          <p class="muted">Upload the county court Word templates you already use and mark the blanks once, add your clients, and share your private request link.</p>
         </div>
         <div>
           <div class="pill"><span class="mono">2</span> Take &amp; confirm sessions</div>
-          <p class="muted">Requests arrive in your inbox. Approve to send an automatic confirmation and calendar invite; decline with a courteous note.</p>
+          <p class="muted">Requests arrive in your Session Requests inbox. Approve with the final time and you and your client each get a confirmation email with a calendar invite; or decline with a note.</p>
         </div>
         <div>
           <div class="pill"><span class="mono">3</span> Document, bill &amp; report</div>
-          <p class="muted">Generate court documents from your templates, draft and email invoices, then export county reporting when ready.</p>
+          <p class="muted">Generate your court documents from your templates, draft and email invoices, then download your county report and submit it yourself.</p>
         </div>
       </div>
     </section>
@@ -401,9 +477,9 @@
         <div class="card">
           <h3>Why mediators choose HarmonyDesk</h3>
           <ul class="list">
-            <li><span class="check">✓</span>Built around the mediation workflow, not generic CRM</li>
-            <li><span class="check">✓</span>Clients self-schedule; you stay in control of approvals</li>
-            <li><span class="check">✓</span>Court documents generated from your own templates</li>
+            <li><span class="check">✓</span>Built around the mediation workflow, not a generic CRM</li>
+            <li><span class="check">✓</span>Works with the court Word templates you already use, once the blanks are marked</li>
+            <li><span class="check">✓</span>Clients request sessions; you approve each one</li>
             <li><span class="check">✓</span>Messages to parties and counsel, plus private notes</li>
           </ul>
         </div>
@@ -418,99 +494,84 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card" id="pricing">
           <h3>Simple pricing</h3>
           <p class="muted">One plan. The full practice workflow, end to end.</p>
           <div class="price">$99/mo</div>
           <ul class="list">
-            <li><span class="check">✓</span>Client self-scheduling &amp; session requests</li>
-            <li><span class="check">✓</span>Confirmations + calendar invites</li>
-            <li><span class="check">✓</span>Court document generation</li>
-            <li><span class="check">✓</span>Invoices, email &amp; county reporting</li>
+            <li><span class="check">✓</span>Court document generation from your templates</li>
+            <li><span class="check">✓</span>Invoices, email &amp; county report exports</li>
+            <li><span class="check">✓</span>Built-in session booking with a private request link</li>
+            <li><span class="check">✓</span>Confirmation emails with calendar invites</li>
           </ul>
+          <p class="muted small">14-day free trial. Card required at checkout. Have a promo code? Enter it at checkout.</p>
           <div class="cta-row">
             <a
-              class="btn primary"
-              href="https://buy.stripe.com/8x2fZbcWW9zfdqqfBkdZ602"
-              data-rewardful
-              target="_blank"
-              rel="noopener"
-            >
-              Start 14-day Free Trial
-            </a>
-            <a
-              class="btn secondary"
-              href="https://www.harmonydesk.dev/dashboard"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Live Demo (read-only)
-            </a>
+            class="btn primary"
+            href="https://buy.stripe.com/8x2fZbcWW9zfdqqfBkdZ602"
+            data-rewardful
+            target="_blank"
+            rel="noopener"
+          >
+            Start 14-day Free Trial
+          </a>
             <a class="btn secondary" href="#faq">Questions?</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section card">
-      <h2>Partner with HarmonyDesk</h2>
-      <div class="grid two">
-        <div>
-          <p class="muted">
-            If you serve mediators, train mediators, publish for mediation professionals, or run an ADR community,
-            you can apply to join our referral partner program.
-          </p>
-          <ul class="list">
-            <li><span class="check">✓</span>40% recurring commission</li>
-            <li><span class="check">✓</span>60-day cookie window</li>
-            <li><span class="check">✓</span>Clear product positioning and simple share link</li>
-          </ul>
+    <section id="founding" class="section card offer">
+      <span class="badge">Founding members · 10 seats</span>
+      <h2>Become one of 10 founding members</h2>
+      <p class="muted">
+        HarmonyDesk is new, and I want to build it with working Florida mediators. Ten founding members get a lower
+        price in exchange for honest feedback while the product grows.
+      </p>
+      <div class="grid terms">
+        <div class="card dense">
+          <div class="caps">First</div>
+          <div class="price">60 days free</div>
+          <div class="muted">Use the full product on your own cases</div>
         </div>
-        <div>
-          <div class="cta-row">
-            <a class="btn primary" href="/affiliates.html">View referral program</a>
-            <a
-              class="btn secondary"
-              href="https://dueltech.getrewardful.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apply as a referral partner
-            </a>
-          </div>
+        <div class="card dense">
+          <div class="caps">Then</div>
+          <div class="price">$49/mo</div>
+          <div class="muted">Locked in for 12 months (regular price $99/mo)</div>
         </div>
+        <div class="card dense">
+          <div class="caps">In return</div>
+          <div class="price">Feedback</div>
+          <div class="muted">Tell me what works and what doesn't, and give a short testimonial</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <!-- TODO(Duel): the claim mechanism may switch to a Stripe promo code later (coupon not set up yet). For now, this mailto is the way to apply. -->
+        <a class="btn primary" href="mailto:duel@dueltech.io?subject=HarmonyDesk%20founding%20member" title="Open your email client">
+          Apply for a founding seat
+        </a>
       </div>
     </section>
 
-    <section id="demo" class="section card">
-      <h2>Request a demo</h2>
-      <p class="muted">
-        We don’t offer 1:1 demos right now. The fastest way to evaluate HarmonyDesk is the read-only live demo and the 14-day free trial.
-      </p>
-
-      <div class="cta-row" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn secondary" href="mailto:duel@dueltech.io" title="Open your email client">
-          Email us
-        </a>
-
-        <a
-          class="btn primary"
-          href="https://buy.stripe.com/8x2fZbcWW9zfdqqfBkdZ602"
-          data-rewardful
-          target="_blank"
-          rel="noopener"
-        >
-          Purchase now
-        </a>
-
-        <a
-          class="btn secondary"
-          href="https://www.harmonydesk.dev/dashboard"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Live Demo (read-only)
-        </a>
+    <section id="founder" class="section card">
+      <h2>Who's behind HarmonyDesk</h2>
+      <!-- TODO(Duel): founder photo is HIDDEN (placeholder only). To restore: upload your photo (e.g. /img/duel-gregory.jpg),
+           replace the commented-out placeholder below with
+           <img class="photo" src="/img/duel-gregory.jpg" alt="Duel Gregory, founder of HarmonyDesk" style="object-fit:cover">,
+           and remove the "no-photo" class from the founder div so the 2-column photo layout comes back. -->
+      <div class="founder no-photo">
+        <!-- HIDDEN: founder photo placeholder
+        <div class="photo" role="img" aria-label="Photo placeholder for Duel Gregory">DG</div>
+        -->
+        <div>
+          <h3 style="margin-top:0">Built by Duel Gregory at DuelTech</h3>
+          <p class="muted">
+            HarmonyDesk is built and supported by its founder, Duel Gregory, at DuelTech.
+          </p>
+          <p class="muted">
+            Questions? Email <a href="mailto:duel@dueltech.io" style="text-decoration:underline">duel@dueltech.io</a>, and I read every message.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -520,30 +581,106 @@
         <div class="card">
           <h3>Who is this for?</h3>
           <p class="muted">
-            Solo and small mediation practices that want their scheduling, documents, and billing in one place — without complexity.
+            Florida Supreme Court-certified mediators in private practice. We're starting with family mediators, but the
+            tools work for any mediator who uses their own document templates.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Does HarmonyDesk include official Florida court forms?</h3>
+          <p class="muted">
+            No. HarmonyDesk doesn't supply court forms. You upload the templates you already use for your county
+            (.docx / .dotx), and HarmonyDesk fills them in. You stay responsible for making sure each form is the
+            current version your court expects.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>My county uses its own forms. Will they work?</h3>
+          <p class="muted">
+            Yes, if it's a Word file (.docx or .dotx). It takes one step of setup: mark each blank with double braces, like
+            <span class="mono">&#123;&#123;case_number&#125;&#125;</span>. HarmonyDesk fills only the marked spots. Case number,
+            county, petitioner and respondent names, session date and time, and your name, business, email and phone fill in
+            automatically. Any other <span class="mono">&#123;&#123;field&#125;&#125;</span> shows up as a box you type into
+            before downloading.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What does "county reporting" do?</h3>
+          <p class="muted">
+            HarmonyDesk builds a county report (CSV or PDF) that you download and submit yourself. Exporting marks those
+            invoices as reported, so they aren't counted twice. Nothing is sent to the court automatically.
           </p>
         </div>
 
         <div class="card">
           <h3>How do clients book a session?</h3>
           <p class="muted">
-            You share a private booking link. Clients request a session, the request lands in your inbox, and you approve or decline. Approvals send a confirmation and a calendar invite automatically.
+            Booking is built in. You share your private request link, and clients pick 1 to 3 preferred dates, a time of
+            day, Zoom or in person, and the expected length. The request lands in your Session Requests inbox, where you
+            approve it with the final time or decline it with a note. On approval, you and your client each get a
+            confirmation email with a calendar invite that works with Google Calendar, Outlook and Apple Calendar.
           </p>
         </div>
 
         <div class="card">
-          <h3>Can I use my own court documents?</h3>
+          <h3>Does it send text-message reminders?</h3>
           <p class="muted">
-            Yes. Upload your county court templates (.docx / .dotx). HarmonyDesk fills them from your case, session, and mediator details and gives you a ready-to-file document.
+            No. HarmonyDesk sends confirmations by email with a calendar invite. It doesn't send text messages.
           </p>
         </div>
 
         <div class="card">
-          <h3>Can I try it before committing?</h3>
+          <h3>Does HarmonyDesk give legal advice?</h3>
           <p class="muted">
-            Yes. Explore the read-only demo, or start the 14-day free trial to use your own private workspace.
+            No. HarmonyDesk has no legal advice features. It handles the paperwork, billing, and scheduling around your
+            mediations; your judgment and your obligations as a mediator stay with you.
           </p>
         </div>
+
+        <div class="card">
+          <h3>How is my case information kept separate?</h3>
+          <p class="muted">
+            Your data is scoped to your own workspace, so your records stay separated from other practices. You decide what
+            gets emailed and when.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>How much does it cost, and can I try it first?</h3>
+          <p class="muted">
+            $99/month, one plan. Start with a 14-day free trial (card required at checkout; promo codes can be entered there).
+            You can also explore the read-only demo with sample data.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Can I talk to someone before signing up?</h3>
+          <p class="muted">
+            Yes. Email <a href="mailto:duel@dueltech.io" style="text-decoration:underline">duel@dueltech.io</a>, and I read every message.
+            You can also open the read-only live demo with sample data.
+          </p>
+        </div>
+      </div>
+      <div class="cta-row" style="margin-top:18px">
+        <a
+            class="btn primary"
+            href="https://buy.stripe.com/8x2fZbcWW9zfdqqfBkdZ602"
+            data-rewardful
+            target="_blank"
+            rel="noopener"
+          >
+            Start 14-day Free Trial
+          </a>
+        <a
+          class="btn secondary"
+          href="https://www.harmonydesk.dev/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Live Demo
+        </a>
       </div>
     </section>
 
@@ -552,8 +689,8 @@
     <section class="footer" aria-label="Footer">
       <div class="foot-links">
         <span class="tag">© <span id="year"></span> HarmonyDesk</span>
-        <span class="tag">Built for mediation practices</span>
-        <span class="tag">Scheduling → documents → billing</span>
+        <span class="tag">Built for Florida mediators</span>
+        <span class="tag">Court documents → invoices → county reports</span>
         <a
           class="tag"
           href="/affiliates.html"
@@ -573,22 +710,15 @@
       </div>
 
       <div class="muted" style="margin-top:8px">
-        HarmonyDesk is built by DuelTech.io — a studio focused on practical, vertical SaaS tools.
+        HarmonyDesk is built by Duel Gregory at DuelTech.io.
       </div>
     </section>
   </main>
 
-  <script>
-    (function () {
-      const el = document.getElementById("year");
-      if (el) el.textContent = new Date().getFullYear();
-    })();
-  </script>
-
   <footer class="footer-legal">
     <div class="footer-legal-grid">
       <div>
-        <strong>HarmonyDesk</strong> · Mediation practice dashboard for scheduling, documents, billing, and reporting.
+        <strong>HarmonyDesk</strong> · Court documents, invoicing, county reporting, and scheduling for mediators.
         <br />
         <span>© <span id="year2"></span> HarmonyDesk. All rights reserved.</span>
       </div>
