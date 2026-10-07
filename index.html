@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <!--
   HarmonyDesk homepage (live). Open items (search this file for "TODO(Duel)"):
-    1. Founder photo: the placeholder circle is hidden (commented out) until a real photo exists.
-    2. Founding-member claim path: currently a mailto; may switch to a Stripe promo code later.
-    3. "See it in action" screenshot section is hidden (commented out) until real screenshots exist.
-    4. og:image / twitter:image are commented out until a social image exists.
+    1. Founding-member claim path: currently a mailto; may switch to a Stripe promo code later.
+    2. "See it in action" screenshot section is hidden (commented out) until real screenshots exist.
+    3. og:image / twitter:image are commented out until a social image exists.
 -->
 <html lang="en">
 <head>
@@ -277,9 +276,9 @@
     .founder.no-photo{grid-template-columns:1fr}
     .photo{
       width:160px;height:160px;border-radius:50%;
-      border:2px dashed rgba(255,255,255,.22);
-      display:flex;align-items:center;justify-content:center;
-      font-size:2.4rem;font-weight:800;color:var(--muted);
+      border:2px solid rgba(255,255,255,.18);
+      object-fit:cover;
+      display:block;
       background:linear-gradient(135deg, rgba(106,167,255,.18), rgba(148,225,255,.08));
     }
     .offer{border-color:rgba(168,255,207,.35)}
@@ -555,14 +554,8 @@
 
     <section id="founder" class="section card">
       <h2>Who's behind HarmonyDesk</h2>
-      <!-- TODO(Duel): founder photo is HIDDEN (placeholder only). To restore: upload your photo (e.g. /img/duel-gregory.jpg),
-           replace the commented-out placeholder below with
-           <img class="photo" src="/img/duel-gregory.jpg" alt="Duel Gregory, founder of HarmonyDesk" style="object-fit:cover">,
-           and remove the "no-photo" class from the founder div so the 2-column photo layout comes back. -->
-      <div class="founder no-photo">
-        <!-- HIDDEN: founder photo placeholder
-        <div class="photo" role="img" aria-label="Photo placeholder for Duel Gregory">DG</div>
-        -->
+      <div class="founder">
+        <img class="photo" src="/img/duel-gregory.jpg" alt="Duel Gregory" width="160" height="160">
         <div>
           <h3 style="margin-top:0">Built by Duel Gregory at DuelTech</h3>
           <p class="muted">
